@@ -1,2 +1,0 @@
-
-The projects are written in Rstudio. This project is a replication of Ricardo Perez-"The Truglia's Effects of Income Transparency on Well-Being: Evidence from a Natural Experiment" (2020). We examined the popularity of tax information websites in Norway and the impact on well-being of their exposure. We observed that during popular periods, tax information websites are more popular than YouTube, and that this information causes individuals to be less content with their income, which results in a lower degree of well-being.
