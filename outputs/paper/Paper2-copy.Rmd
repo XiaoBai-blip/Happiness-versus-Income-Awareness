@@ -21,6 +21,8 @@ Based on information gathered by the Norwegian Monitor Survey, an annual self-co
 
 In this paper, we will first use various data sources to show the popularity of these online tax lists in both Norway and Sweden through comparing search volumes of different keywords. Then we will narrow down our topic to be more focusing on weekly search volumes in Norway between January 2010 and January 2011. We found that the first month of 2010 was the first time that the overall number of searches across all categories reached one million. Immediately after the release of the previous year's tax data, individuals began searching for tax lists in droves. Norway's tax lists outperformed YouTube searches during that month, demonstrating that Norwegians were more interested in learning about other people's income than they were in watching YouTube videos. In addition, since income transparency intents income comparison, it might also widen the gap between richer individuals and poorer individuals well-being. We will then discuss the effect of the increase in transparency using the gradient between subjective well-being and individual income rank. By doing so, we will conduct a regression model to test whether there is a positive relationship between an individual's income rank and its well-being. Ideally, conducting these three aspects can provide people a general understanding of how a higher income transparency can affect the well-being gap between different groups of people with different income level.
 
+The analysis will be conducted in R (@citeR), and the package we will use is tidyverse[@citetidyverse]. All graphs will be created using function ggplot2[@citeggplot2]. The packages knitr [@knitr] are also used to generate the R markdown report.
+
 
 
 ## Literature Review
@@ -48,15 +50,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r include=FALSE}
-library(haven)
 library(tidyverse)
+library(haven)
+library(tidyr)
+library(reshape2)
 ```
 
 ```{r include=FALSE}
 survey_data = read_dta("Raw-Norwegian-Monitor-Survey-Data.dta", encoding = 'latin1')
 country_data = read_dta("google_searches_by_country.dta", encoding = 'latin1')
 time_data = read_dta("google_searches_over_time.dta", encoding = 'latin1')
-names_data = read_dta("names_browsing_skattelister.dta", encoding = 'latin1')
+#names_data = read_dta("names_browsing_skattelister.dta", encoding = 'latin1')
 ```
 
 # Data and Context
@@ -158,7 +162,7 @@ Table 1 shows the result of regression model using the same OLS regression. Give
 # Discussions
 
 ## Limitations
-There existed very limited used of the online tax lists for the purpose of learning salary. The actual percentage turned out to be only 26 percent of the individuals and may be only for the purpose of snooping not researching. Plus, the nature of the data was described as "completely useless" for salary comparisons practices(NRK 2008). On top of that, the Norwegian tax records reveal comprehensive income including gains outside of the payroll which puts additional uncertainties comparing to the benchmark of the website of state employees studied in Card et al. (2012). 
+There existed very limited used of the online tax lists for the purpose of learning salary. The actual percentage turned out to be only 26 percent of the individuals and may be only for the purpose of snooping not researching. Plus, the nature of the data was described as "completely useless" for salary comparisons practices[@citenrk]. On top of that, the Norwegian tax records reveal comprehensive income including gains outside of the payroll which puts additional uncertainties comparing to the benchmark of the website of state employees studied in [@citecard]. 
 
 
 ## Ethics
@@ -169,7 +173,7 @@ There existed very limited used of the online tax lists for the purpose of learn
 
 
 
-# References
+# Reference
 
 Card, David, Alexandre Mas, Enrico Moretti, and Emmanuel Saez. 2012. “Inequality at Work: The
 Effect of Peer Salaries on Job Satisfaction.” American Economic Review 102 (6): 2981–3003.
