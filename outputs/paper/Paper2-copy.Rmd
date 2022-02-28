@@ -13,7 +13,13 @@ abstract: "In 2001, tax records in Norwey becaome easily accessible online, whic
 bibliography: references.bib
 ---
 
+
+Code and data are available at ^[ https://github.com/XiaoBai-blip/STA304-Paper-2]
+
+DOI of my replication is available at ^[https://doi.org/10.48152/ssrp-2dzq-6x71]
+
 \newpage
+
 # Introduction
 
 After the introduction of easy internet access to Norwegian tax data in 2001, it became possible for everyone in the nation to quickly and easily see the earnings of anyone else in the country. In Norway, everyone was just a few clicks away from discovering the average income of everyone else in the nation. In the busiest week of the year, these websites were more popular than YouTube. Because income transparency makes it easier to compare incomes, it has the potential to expand the disparity in well-being between wealthier and poorer people. Individuals with lower incomes often lose in this game of income comparisons.
@@ -39,9 +45,9 @@ Happiness: Questions asked in happiness questions are: "Will you mostly describe
 
 Satisfaction: The life satisfaction question is, “How satisfied are you with your life? Very satisfied; Somewhat Satisfied; Neither satisfied nor dissatisfied; Slightly dissatisfied; Very dissatisfied.” Researchers of the original paper.
 
-Income Rank —- denotes the respondent's position in the distribution of household income for the current year. Respondents were questioned about their yearly gross household income using bins, as is customary in household surveys.
+Income Rank: Denotes the respondent's position in the distribution of household income for the current year. Respondents were questioned about their yearly gross household income using bins, as is customary in household surveys.
 
-Perceived Rank -- Based on the question: "Would you say that your economic condition is... in contrast to other Norwegians?" Slightly worse than average; Average; Slightly better than average; Much better than average.
+Perceived Rank: Based on the question: "Would you say that your economic condition is... in contrast to other Norwegians?" Slightly worse than average; Average; Slightly better than average; Much better than average.
 
 Transparency: A dummy variable indicating the period of higher income transparency. Equal to 1 if time is in between 2001 and 2013, and 0 otherwise.
 
@@ -88,10 +94,14 @@ Data from Google Trends may be used to compare the popularity of the income sear
 
 A bar plot, like depicted in the previous paragraph, depicts the popularity of chosen phrases in Norway in 2010. In addition, this report includes a line graph illustrating the distribution of Google searches over the course of each week in the year 2010. If you're searching during the first week of 2010, search volumes are normalized such that the total number of searches across all categories equals one in total.
 
-
+\newpage
 ## Results 
 
 When looking for tax documents on the internet, it's necessary to be familiar with the most often used words, as seen in Figure 1. By inserting the word "YouTube," we've provided a jumping-off point for other users. Norway has been located, which signifies that the quest has come to an end. A skattelister's test in Norway is no longer solely dependent on weather predictions as of the year 2010. A skattelister search accounted for almost one out of every five YouTube searches. This indicates that there is a great deal of interest in the tax listings. Norwegians were found to be more prone than the overall population to look for tax paperwork, according to the study. While it is true that people have an increased interest in taxation, tax lists were searched approximately three times more often than actual taxes.
+
+
+
+
 ```{r echo=FALSE}
 #Since the original data contain many observations that exceed the maximum load and are useless for further analysis, we create a new table with the corresponding variables and then plot a bar graph.
 country_hah <- read.table(text = "keyword    Norway    Sweden
@@ -170,20 +180,22 @@ Table: Results of Regression Model
 Table 1 shows the result of regression model using the same OLS regression. Given the dependent variable happiness, we can see that the estimated coefficient on Income Rank is 0.120, which is positive. Moreover, the p-value of the coefficient is smaller than 0.05, which indicates that Income Rank as explanatory variable is statistical significant to our dependent variable (happiness). This coefficient implies that going from the lowest to the highest income rank in Norway during 1985–2000 was associated with an increase in happiness of 0.120 standard deviations. In addition, this table reports that the coefficient of the interaction term is 0.090. The p-value of 0.032 also implies that this variable is statistical significant to our dependent variable happiness.
 
 
+
 # Discussions
 
-## Limitations
-There existed very limited used of the online tax lists for the purpose of learning salary. The actual percentage turned out to be only 26 percent of the individuals and may be only for the purpose of snooping not researching. Plus, the nature of the data was described as "completely useless" for salary comparisons practices[@citenrk]. On top of that, the Norwegian tax records reveal comprehensive income including gains outside of the payroll which puts additional uncertainties comparing to the benchmark of the website of state employees studied in [@citecard]. 
+This paper is reproduction of "The Effects of Income Transparency on Well-Being: Evidence from a Natural Experiment," written by Ricardo Perez-Truglia, is included in this publication [@citehappy]. Because this is a replication research, the model used in this publication is not the same as the model used in the original work. There existed very limited used of the online tax lists for the purpose of learning salary. The actual percentage turned out to be only 26 percent of the individuals and may be only for the purpose of snooping not researching. Plus, the nature of the data was described as "completely useless" for salary comparisons practices [@citenrk]. On top of that, the Norwegian tax records reveal comprehensive income including gains outside of the payroll which puts additional uncertainties comparing to the benchmark of the website of state employees studied in [@citecard].
 
+## Limitations and Future
+Due to our limited expertise of the subject matter, we chose two components of the paper for replication. We started with the first linear regression model and repeated it without using a control variable to see how it performed. The findings revealed an association between income transparency and well-being in the same manner that was indicated in the original study; however, the number we replicated was not precisely the same as the original paper. As a consequence of the minimal replication information supplied by the publication and the knowledge base, we have been successful in reproducing a bare-bone regression model utilizing the same OLS regression and obtaining the same outcome as before. I made several recommendations based on the constraints I saw. First and foremost, if at all feasible, the replication process should begin with data collection. Furthermore, certain fundamental demographic factors should be gathered and documented in the data so that I may include them into the model to account for any tiny variances across groups and therefore increase the accuracy of forecasts. 
 
 ## Ethics
+On the 10 Simple Rules for Responsible Big Data Research, we will rely on the advice provided by @citeTen. The ten rules are as follows (according to @citeTen ). We acknowledge that 1) The data is based on survey and people, and these data can be harmful. 2) The data is privacy. 3) The share of the data package is ethical. 4) The study has limitations.
 
-## Future
 
 # Conclusion
 
 In this paper, we compare the popularity of Norwegian tax lists with YouTube searches from January 2010 to January 2011. This paper will also test whether the increase in income transparency affects the gap between richer and poorer people's well-being. Figure 1 shows that a skattelister in Norway was able to find tax documents on the Internet by inserting the word "YouTube". This indicates that a great deal of interest in the tax listings existed. Figure 2 shows that the first week of 2010 saw a rise in the overall number of searches across all categories, with the number of searches for weather-related information almost doubling. Table 1 shows that going from the lowest income rank in Norway to the highest income rank in Norway during 1985 - 2000 was associated with a 0.120 standard deviation increase in happiness. The online tax lists of Norwegian taxpayers reveal income including gains outside of the payroll, which makes the data useless for salary comparisons practices.
 
+\newpage
+
 # Reference
-
-
