@@ -3,7 +3,7 @@ title: "Happiness versus Income Awareness"
 subtitle: "Will people be happier if they know each other's income?"
 author: 
   - Xiao Bai
-  - Yichun Zhangah
+  - Yichun Zhang
 date: "27/02/2022"
 output:
   pdf_document:
